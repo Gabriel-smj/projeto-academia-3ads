@@ -1,0 +1,102 @@
+.container {
+    width: 100%;
+
+    min-width: 0;
+}
+
+
+/* CABEÇALHO */
+
+.cabecalho {
+    margin-bottom: 20px;
+}
+
+.cabecalho h2 {
+    color: var(--cor-texto);
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+
+/* TABELA */
+
+.tabelaContainer {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--cor-borda);
+    border-radius: 8px;
+
+    background-color: var(--cor-fundo-card);
+}
+
+.tabela {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    font-size: 12px;
+}
+
+
+/* CABEÇALHO DA TABELA */
+
+.tabela thead {
+    background-color: var(--cor-fundo-secundario);
+}
+
+.tabela th {
+    padding: 14px 12px;
+
+    border-bottom: 1px solid var(--cor-borda);
+
+    color: var(--cor-texto-secundario);
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+/* LINHAS */
+
+.tabela td {
+    padding: 14px 12px;
+
+    border-bottom: 1px solid var(--cor-borda);
+
+    color: var(--cor-texto);
+
+    white-space: nowrap;
+}
+
+.tabela tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+/* HOVER */
+
+.tabela tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 768px) {
+
+    .cabecalho h2 {
+        font-size: 20px;
+    }
+
+    .tabela {
+        min-width: 700px;
+    }
+
+}

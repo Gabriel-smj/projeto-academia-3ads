@@ -1,0 +1,32 @@
+.mensagem {
+    width: 100%;
+
+    padding: 10px 14px;
+
+    margin-bottom: 20px;
+
+    border-radius: 5px;
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.sucesso {
+    background-color: var(--cor-sucesso);
+
+    color: var(--cor-texto);
+}
+
+.erro {
+    background-color: var(--cor-erro);
+
+    color: var(--cor-texto);
+}
+
+.carregando {
+    background-color: var(--cor-fundo-secundario);
+
+    border: 1px solid var(--cor-borda);
+
+    color: var(--cor-texto-secundario);
+}
