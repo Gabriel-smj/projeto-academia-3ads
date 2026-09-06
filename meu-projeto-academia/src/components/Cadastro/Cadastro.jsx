@@ -11,41 +11,37 @@ function Cadastro() {
 
                 <div className={styles.campo}>
 
+                    <input id="nome" name='nome' type="text" placeholder="" />
+
                     <label htmlFor="nome">
                         Nome Completo
                     </label>
 
-                    <input id="nome" type="text" placeholder="Nome Completo"/>
                 </div>
-
 
                 <div className={styles.campo}>
 
-                    <label htmlFor="nascimento">
-                        Data de Nascimento
-                    </label>
-
-                    <input id="nascimento" type="date"/>
-                </div>
-
-
-                <div className={styles.campo}>
+                    <input id="email" name="email" type="email" placeholder="" />
 
                     <label htmlFor="email">
                         E-mail
                     </label>
 
-                    <input id="email" type="email" placeholder="E-mail"/>
                 </div>
 
 
                 <div className={styles.campo}>
 
+                    <input id="telefone" name='telefone' type="tel" placeholder="" />
                     <label htmlFor="telefone">
                         Telefone
                     </label>
 
-                    <input id="telefone" type="tel" placeholder="Telefone"/>
+                </div>
+
+                <div className={styles.campo}>
+                    <input id="dataNascimento" name="dataNascimento" type="date" placeholder=" "/>
+                    <label htmlFor="dataNascimento">Data de Nascimento</label>
                 </div>
 
 
@@ -55,30 +51,20 @@ function Cadastro() {
                         Plano
                     </label>
 
-                    <select id="plano">
-
+                    <select id="plano" name="plano" defaultValue="" aria-required>
                         <option disabled selected>
                             Selecione um plano
                         </option>
 
-                        <option value="BASICO">
-                            Básico
-                        </option>
-
-                        <option value="PRO">
-                            Pro
-                        </option>
-
-                        <option value="VIP">
-                            VIP
-                        </option>
-
+                        <option value="BASICO">Básico</option>
+                        <option value="PRO">Pro</option>
+                        <option value="VIP">VIP</option>
                     </select>
                 </div>
 
 
                 <button type="submit" className={styles.botao}>
-                    Cadastrar
+                    CADASTRAR
                 </button>
 
             </form>

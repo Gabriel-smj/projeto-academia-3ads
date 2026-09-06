@@ -9,6 +9,9 @@
     border-radius: 8px;
 
     box-shadow: 0 10px 30px var(--sombra);
+
+    display: flex;
+    flex-direction: column;
 }
 
 .titulo {
@@ -23,9 +26,8 @@
 
     color: #111;
 
-    font-size: 12px;
+    font-size: 16px;
     font-weight: 800;
-    letter-spacing: 0.5px;
 }
 
 .form {
@@ -37,21 +39,40 @@
 }
 
 .campo {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 6px;
+    position: relative;
+    width: 100%;
+    padding-top: 18px;
 }
 
 .campo label {
-    color: var(--cor-texto);
+    position: absolute;
+    top: 25px;
+    left: 12px;
 
-    font-size: 11px;
-    font-weight: 600;
+    color: var(--cor-texto-terciario);
+    font-size: 12px;
+    pointer-events: none;
+
+    transition: 0.2s ease;
 }
 
-.campo input,
+.campo input {
+    width: 100%;
+    height: 40px;
+    padding: 7px 12px;
+
+    border: none;
+    border-bottom: 2px solid var(--cor-borda);
+    outline: none;
+
+    background-color: transparent;
+    color: var(--cor-texto);
+    font-size: 12px;
+
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+
 .campo select {
     width: 100%;
 
@@ -74,7 +95,33 @@
 }
 
 .campo input::placeholder {
+    color: transparent;
+}
+
+.campo input:focus {
+    border-bottom: 2px solid var(--cor-primaria);
+    box-shadow: 0 2px 0 var(--cor-primaria);
+}
+
+.campo input:focus ~ label,
+.campo input:not(:placeholder-shown) ~ label {
+    top: 2px;
+    left: 4px;
+
+    color: var(--cor-primaria);
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.campo input[type="date"] ~ label {
+    top: 2px;
+    left: 4px;
     color: var(--cor-texto-terciario);
+    font-size: 11px;
+}
+
+.campo input[type="date"]:focus ~ label {
+    color: var(--cor-primaria);
 }
 
 .campo input:focus,
@@ -84,32 +131,68 @@
     box-shadow: 0 0 0 2px rgba(184, 245, 0, 0.08);
 }
 
+.campo:has(select) {
+    padding-top: 20px;
+}
+
+.campo:has(select) label {
+    top: 0;
+    left: 4px;
+
+    color: var(--cor-texto-terciario);
+    font-size: 11px;
+}
+
+.campo:has(select) select {
+    margin-top: 8px;
+}
+
+.campo:has(select:focus) label {
+    color: var(--cor-primaria);
+}
+
 .botao {
-    width: 100%;
-
-    height: 42px;
-
-    margin-top: 4px;
-
-    border: none;
-    border-radius: 6px;
-
-    background-color: var(--cor-primaria);
-
-    color: #111;
-
-    font-size: 12px;
-    font-weight: 800;
-
+    appearance: none;
+    background-color: transparent;
+    border: 0.125em solid var(--cor-primaria);
+    border-radius: 0.9375em;
+    box-sizing: border-box;
+    color: var(--cor-primaria);
     cursor: pointer;
+    display: inline-block;
+    font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0;
+    min-height: 3.75em;
+    min-width: 0;
+    outline: none;
+    padding: 1em 2.3em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    will-change: transform;
+}
 
-    transition: background-color 0.2s, transform 0.2s;
+.botao:disabled {
+    pointer-events: none;
 }
 
 .botao:hover {
+    color: var(--cor-fundo);
+    font-weight: 700;
     background-color: var(--cor-primaria-hover);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+}
 
-    transform: translateY(-1px);
+.botao:active {
+    box-shadow: none;
+    transform: translateY(0);
 }
 
 @media (max-width: 768px) {
