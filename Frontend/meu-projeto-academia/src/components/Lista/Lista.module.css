@@ -48,9 +48,9 @@
 }
 
 .tabela th {
-    padding: 14px 12px;
+    padding: 16px;
 
-    border-bottom: 1px solid var(--cor-borda);
+    border-bottom: 1px solid var(--cor-borda-secundaria);
 
     color: var(--cor-texto-secundario);
 
