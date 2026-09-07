@@ -1,7 +1,5 @@
 import styles from './Cadastro.module.css'
-import { useEffect, useState } from 'react'
-import { listarMembros } from '../../services/api'
-
+import { useState } from 'react'
 
 function Cadastro() {
 
@@ -15,7 +13,12 @@ function Cadastro() {
     const [plano, setPlano] = useState('')
 
 
+
+
     function cadastrar() {
+
+        setMensagem('')
+        setTipoMensagem('')
 
         if (
             nome === '' ||
@@ -38,12 +41,36 @@ function Cadastro() {
             plano
         }
 
-        setMensagem('Membro cadastrado com sucesso!')
-        setTipoMensagem('sucesso')
+        fetch('http://localhost:8080/membro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(novoMembro)
+        })
+            .then(resposta => {
 
-        { limparCampos() }
+                if (resposta.status === 201) {
+                    return resposta.json()
+                }
 
-        console.log(novoMembro)
+                throw new Error('Erro ao cadastrar membro')
+            })
+            .then(membroCadastrado => {
+
+                console.log('Membro cadastrado:', membroCadastrado)
+
+                setMensagem('Membro cadastrado com sucesso!')
+                setTipoMensagem('sucesso')
+
+                limparCampos()
+
+            })
+            .catch(erro => {
+
+                console.error('Erro:', erro)
+
+            })
     }
 
     function limparCampos() {
