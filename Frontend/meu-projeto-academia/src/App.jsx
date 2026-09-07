@@ -2,8 +2,11 @@ import Navbar from './components/Navbar/Navbar.jsx'
 import styles from './App.module.css'
 import CadastroMembro from './components/Cadastro/Cadastro.jsx'
 import ListaMembros from './components/Lista/Lista.jsx'
+import { useState } from 'react'
 
 function App() {
+
+    const [membroAdicionado, setMembroAdicionado] = useState(null)
 
     return (
         <div className={styles.app}>
@@ -11,9 +14,9 @@ function App() {
 
             <main className={styles.main}>
 
-                <CadastroMembro />
+                <CadastroMembro onMembroCadastrado={setMembroAdicionado} />
 
-                <ListaMembros />
+                <ListaMembros membroAdicionado={membroAdicionado} />
 
             </main>
 
