@@ -1,7 +1,7 @@
 import styles from './Cadastro.module.css'
 import { useState } from 'react'
 
-function Cadastro() {
+function Cadastro({ onMembroCadastrado }) {
 
     const [mensagem, setMensagem] = useState('')
     const [tipoMensagem, setTipoMensagem] = useState('')
@@ -59,6 +59,7 @@ function Cadastro() {
             .then(membroCadastrado => {
 
                 console.log('Membro cadastrado:', membroCadastrado)
+                onMembroCadastrado(membroCadastrado)
 
                 setMensagem('Membro cadastrado com sucesso!')
                 setTipoMensagem('sucesso')

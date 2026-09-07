@@ -1,7 +1,7 @@
 import styles from './Lista.module.css'
 import { useEffect, useState } from 'react'
 
-function Lista() {
+function Lista({ membroAdicionado }) {
 
     const [membros, setMembros] = useState([])
     const [carregando, setCarregando] = useState(true)
@@ -43,6 +43,12 @@ function Lista() {
     useEffect(() => {
         buscarMembros()
     }, [])
+
+    useEffect(() => {
+        if (membroAdicionado) {
+            setMembros(membrosAtuais => [...membrosAtuais, membroAdicionado])
+        }
+    }, [membroAdicionado])
 
 
     return (
@@ -96,7 +102,7 @@ function Lista() {
 
             {erro && (
                 <p className={styles.erro}>
-                    {erro}
+                   {erro} Ocorreu um erro ao buscar os membros!
                 </p>
             )}
 
