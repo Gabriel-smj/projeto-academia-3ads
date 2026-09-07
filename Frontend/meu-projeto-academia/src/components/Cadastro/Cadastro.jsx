@@ -1,7 +1,7 @@
 import styles from './Cadastro.module.css'
-import { useState } from 'react'
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import {faUserPlus} from '@fortawesome/free-solid-svg-icons'
+import { useEffect, useState } from 'react'
+import { listarMembros } from '../../services/api'
+
 
 function Cadastro() {
 
@@ -13,6 +13,7 @@ function Cadastro() {
     const [email, setEmail] = useState('')
     const [telefone, setTelefone] = useState('')
     const [plano, setPlano] = useState('')
+
 
     function cadastrar() {
 
