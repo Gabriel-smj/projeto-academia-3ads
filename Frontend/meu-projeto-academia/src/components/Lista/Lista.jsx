@@ -1,6 +1,5 @@
 import styles from './Lista.module.css'
 import { useEffect, useState } from 'react'
-import { listarMembros } from '../../services/api'
 
 function Lista() {
 
@@ -8,30 +7,43 @@ function Lista() {
     const [carregando, setCarregando] = useState(true)
     const [erro, setErro] = useState('')
 
-    useEffect(() => {
+    function buscarMembros() {
 
-        async function buscarMembros() {
+        setCarregando(true)
+        setErro(false)
 
-            try {
+        fetch('http://localhost:8080/membro')
+            .then(resposta => {
 
-                const dados = await listarMembros()
+                if (!resposta.ok) {
+                    throw new Error('Erro ao buscar membros')
+                }
+
+                return resposta.json()
+            })
+            .then(dados => {
 
                 setMembros(dados)
+                console.log(dados)
 
-            } catch (erro) {
+            })
+            .catch(erro => {
 
-                setErro('Não foi possível carregar os membros.')
+                console.error(erro)
+                setErro(true)
 
-            } finally {
+            })
+            .finally(() => {
 
                 setCarregando(false)
 
-            }
-        }
+            })
+    }
 
+    useEffect(() => {
         buscarMembros()
-
     }, [])
+
 
     return (
         <section className={styles.container}>

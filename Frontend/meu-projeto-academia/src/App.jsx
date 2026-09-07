@@ -2,7 +2,6 @@ import Navbar from './components/Navbar/Navbar.jsx'
 import styles from './App.module.css'
 import CadastroMembro from './components/Cadastro/Cadastro.jsx'
 import ListaMembros from './components/Lista/Lista.jsx'
-import { useEffect } from 'react'
 
 function App() {
 
