@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+
+:root {
+    /* Cores principais */
+    --cor-primaria: #B8F500;
+    --cor-primaria-hover: #A6DE00;
+
+    /* Fundo */
+    --cor-fundo: #0B0B0B;
+    --cor-fundo-secundario: #111111;
+    --cor-fundo-card: #171717;
+    --cor-fundo-terciario: #1F1F1F;
+
+    /* Bordas */
+    --cor-borda: #303030;
+    --cor-borda-secundaria: #52525B;
+    --cor-borda-terciaria: #71717A;
+    --cor-borda-quaternaria: #A1A1AA;
+
+    /* Textos */
+    --cor-texto: #FFFFFF;
+    --cor-texto-secundario: #B5B5B5;
+    --cor-texto-terciario: #D4D4D8;
+    --cor-texto-quaternario: #A1A1AA;
+    --cor-texto-quinto: #71717A;
+    --cor-texto-sexto: #52525B;
+    --cor-texto-setimo: #3F3F46;
+    --cor-texto-oitavo: #27272A;
+    --cor-texto-nono: #18181B;
+    --cor-texto-decimo: #0F0F10;
+    --cor-texto-decimo-primeiro: #0A0A0A;
+    --cor-texto-decimo-segundo: #050505;
+
+    /* Estados */
+    --cor-sucesso: #B8F500;
+    --cor-erro: #8F3030;
+    --cor-aviso: #F5A524;
+    --cor-informacao: #3B82F6;
+    --cor-desativado: #A1A1AA;
+    --cor-ativo: #B8F500;
+    --cor-destaque: #B8F500;
+    --cor-destaque-hover: #A6DE00;
+    --cor-destaque-ativo: #8F3030;
+    --cor-destaque-desativado: #A1A1AA;
+    
+
+    /* Outros */
+    --sombra: rgba(0, 0, 0, 0.4);
+}
+
+html,body {
+    height: 100%;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border:0;
+}
+
+body {
+    background-color: var(--cor-fundo);
+    color: var(--cor-texto);
+
+    font-family: 'Inter', sans-serif;
+}
