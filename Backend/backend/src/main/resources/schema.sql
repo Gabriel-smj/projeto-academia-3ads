@@ -1,4 +1,4 @@
-CREATE DATABASE powerfit;
+CREATE DATABASE IF NOT EXISTS powerfit;
 
 USE powerfit;
 

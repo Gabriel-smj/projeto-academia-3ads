@@ -10,7 +10,7 @@ function Lista({ membroAdicionado }) {
     function buscarMembros() {
 
         setCarregando(true)
-        setErro(false)
+        setErro('')
 
         fetch('http://localhost:8080/membro')
             .then(resposta => {
@@ -30,7 +30,7 @@ function Lista({ membroAdicionado }) {
             .catch(erro => {
 
                 console.error(erro)
-                setErro(true)
+                setErro('Não foi possível carregar os membros.')
 
             })
             .finally(() => {
@@ -102,7 +102,7 @@ function Lista({ membroAdicionado }) {
 
             {erro && (
                 <p className={styles.erro}>
-                   {erro} Ocorreu um erro ao buscar os membros!
+                    {erro}
                 </p>
             )}
 

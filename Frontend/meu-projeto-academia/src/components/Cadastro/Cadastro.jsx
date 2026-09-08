@@ -70,6 +70,8 @@ function Cadastro({ onMembroCadastrado }) {
             .catch(erro => {
 
                 console.error('Erro:', erro)
+                setMensagem('Não foi possível cadastrar o membro. Tente novamente.')
+                setTipoMensagem('erro')
 
             })
     }
