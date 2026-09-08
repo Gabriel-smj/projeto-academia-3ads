@@ -1,0 +1,9 @@
+# Copy this file to application-local.properties and fill with your local credentials.
+# DO NOT commit application-local.properties to Git.
+
+# Spring datasource local overrides
+spring.datasource.username=root
+spring.datasource.password=34102730
+
+# Example: use a different DB URL for local dev
+# spring.datasource.url=jdbc:mysql://localhost:3306/powerfit_local
