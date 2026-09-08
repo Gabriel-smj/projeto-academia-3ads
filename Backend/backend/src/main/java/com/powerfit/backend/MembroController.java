@@ -18,7 +18,6 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:5173")
 public class MembroController {
 
-    private static final Logger log = LoggerFactory.getLogger(MembroController.class);
     private final JdbcTemplate jdbcTemplate;
 
     public MembroController(JdbcTemplate jdbcTemplate) {
@@ -41,21 +40,7 @@ public class MembroController {
     @PostMapping
     public ResponseEntity<Membro> cadastrarMembros(@RequestBody Membro membro) {
 
-        if (
-                membro.getNome() == null ||
-                        membro.getNome().isBlank() ||
-                        membro.getDataNascimento() == null ||
-                        membro.getEmail() == null ||
-                        membro.getEmail().isBlank() ||
-                        membro.getTelefone() == null ||
-                        membro.getTelefone().isBlank() ||
-                        membro.getPlano() == null ||
-                        membro.getPlano().isBlank()
-
-        ) {
-            return ResponseEntity.status(400).build();
-        }
-
+        if (membro == null) return ResponseEntity.status(400).body(membro);
 
 
         String sql = "INSERT INTO membro(nome, dtNascimento, email, telefone, plano) VALUES(?,?,?,?,?)";
@@ -88,14 +73,18 @@ public class MembroController {
             return ResponseEntity.status(400).build();
         }
 
-        String sql = "SELECT id, nome, dtNascimento AS dataNascimento, email, telefone, plano FROM membro WHERE id = ?";
-        Membro membros = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Membro.class), id);
+        try {
+            String sql = "SELECT id, nome, dtNascimento AS dataNascimento, email, telefone, plano FROM membro WHERE id = ?";
+            Membro membros = jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Membro.class), id);
 
-        if (membros == null) {
+            if (membros == null) {
+                return ResponseEntity.status(404).body(membros);
+            }
+            return ResponseEntity.status(200).body(membros);
+
+        } catch (Exception e) {
             return ResponseEntity.status(404).build();
         }
-
-        return ResponseEntity.status(200).body(membros);
     }
 
     @GetMapping("nome/{nome}")
@@ -125,7 +114,6 @@ public class MembroController {
     }
 
 
-
     @PutMapping("/{id}")
     public ResponseEntity<Membro> atualizarPorId(@PathVariable Integer id, @RequestBody Membro membro) {
 
@@ -133,8 +121,10 @@ public class MembroController {
             return ResponseEntity.status(400).body(membro);
         }
 
+        if (membro == null) return ResponseEntity.status(400).body(membro);
+
         String sql = "UPDATE membro SET nome = ?, dtNascimento = ?, email = ?, telefone = ?, plano = ? WHERE id = ?";
-        int linhasAfetadas = jdbcTemplate.update(sql,
+        Integer linhasAfetadas = jdbcTemplate.update(sql,
                 membro.getNome(),
                 java.sql.Date.valueOf(membro.getDataNascimento()),
                 membro.getEmail(),
@@ -158,12 +148,12 @@ public class MembroController {
         }
 
         String sql = "DELETE FROM membro WHERE id = ?";
-        int rowsAffected = jdbcTemplate.update(sql, id);
+        Integer  linnhasAfetadas = jdbcTemplate.update(sql, id);
 
-        if (rowsAffected == 0) {
-            return ResponseEntity.status(404).body("Membro não encontrado");
+        if ( linnhasAfetadas == 0) {
+            return ResponseEntity.status(404).body("Membro não encontrado!");
         }
 
-        return ResponseEntity.status(200).body("Membro deletado com sucesso");
+        return ResponseEntity.status(200).body("Membro deletado com sucesso!");
     }
 }

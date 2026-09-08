@@ -1,0 +1,13 @@
+CREATE DATABASE powerfit;
+
+USE powerfit;
+
+CREATE TABLE IF NOT EXISTS membro (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nome VARCHAR(255) NOT NULL,
+  dtNascimento DATE NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  telefone VARCHAR(50) NOT NULL,
+  plano ENUM('BASICO','PRO','VIP') NOT NULL
+);
+
