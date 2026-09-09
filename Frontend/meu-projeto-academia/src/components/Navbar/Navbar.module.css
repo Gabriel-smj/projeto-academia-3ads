@@ -4,7 +4,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 
     padding: 0 5%;
 
@@ -29,9 +29,9 @@
 }
 
 .logoArea h1 {
-    color: var(--cor-texto);
+    color: var(--cor-destaque);
 
-    font-size: 20px;
+    font-size: 24px;
     font-weight: 800;
 
     line-height: 1;
@@ -40,11 +40,11 @@
 .logoArea span {
     display: block;
 
-    margin-top: 3px;
+    margin-top: 8px;
 
-    color: var(--cor-texto-terciario);
+    color: var(--cor-texto-quinto);
 
-    font-size: 8px;
+    font-size: 12px;
     font-weight: 600;
     letter-spacing: 2px;
 }
@@ -61,35 +61,6 @@
 }
 
 
-/* MENU */
-
-.menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 42px;
-    height: 42px;
-
-    border: 1px solid var(--cor-borda);
-    border-radius: 8px;
-
-    background-color: transparent;
-
-    color: var(--cor-texto);
-
-    font-size: 22px;
-
-    cursor: pointer;
-
-    transition: 0.2s;
-}
-
-.menu:hover {
-    border-color: var(--cor-primaria);
-
-    color: var(--cor-primaria);
-}
 
 @media (max-width: 768px) {
 
