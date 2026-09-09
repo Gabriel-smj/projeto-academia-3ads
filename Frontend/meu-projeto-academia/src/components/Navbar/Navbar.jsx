@@ -8,7 +8,7 @@ function Navbar() {
             <div className={styles.logoArea}>
 
                 <div className={styles.logo}>
-                    ⚡
+                    
                 </div>
 
                 <div>
@@ -25,14 +25,6 @@ function Navbar() {
             <div className={styles.titulo}>
                 SISTEMA DE GESTÃO DE ACADEMIA
             </div>
-
-
-            <button
-                className={styles.menu}
-                aria-label="Abrir menu"
-            >
-                ☰
-            </button>
 
         </header>
     )
